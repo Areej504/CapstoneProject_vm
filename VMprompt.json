@@ -1,5 +1,4 @@
 {
-  "task": "Generate input test cases for black box testing of a DEVS (Discrete Event System Specification) coupled model.",
   "model_description": {
     "type": "coupled DEVS",
     "name": "VendingMachine",
@@ -26,9 +25,19 @@
   "output_format":
   {
     "test_cases": [
-      {
-        "input": {},
-        "expected_output": {}
+        {
+        "description": "Next test case description...",
+        "input": {
+          "coin_input": "<test_value>",
+          "product_selection": "<test_value>",
+          "cancel_transaction": "<test_value>"
+        },
+        "expected_output": {
+          "product_dispense": "<expected_product_dispense>",
+          "balance_display": "<expected_balance_display>",
+          "change_return": "<expected_change_return>",
+          "error_message": "<expected_error_message>"
+        }
       }
     ]
   }
