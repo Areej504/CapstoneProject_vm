@@ -23,5 +23,14 @@
     "Check valid and invalid product selections including boundary values like 'A1' and 'C3', and invalid values such as 'D1'.",
     "Test cancel transaction input with true/false values to confirm balance return functionality."
   ],
-  "output_format": "A list of input test cases for each input, specified in JSON format, with boundary values clearly indicated."
+  "output_format":
+  {
+    "test_cases": [
+      {
+        "input": {},
+        "expected_output": {}
+      }
+    ]
+  }
+
 }
