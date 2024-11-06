@@ -2,10 +2,13 @@ import openai
 import json
 from datetime import datetime
 import os
+from dotenv import load_dotenv
 
-# Set up OpenAI API key
-openai.api_key = "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"  # Replace with your actual API key
+# Load environment variables from .env file
+load_dotenv("key.env")
 
+# Set up OpenAI API key from environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def load_json(file_path):
     """Load JSON data from a file and return it as a string."""
