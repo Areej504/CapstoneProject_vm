@@ -1,0 +1,17 @@
+{
+  "task": "Generate input test cases for black box testing of a DEVS (Discrete Event System Specification) coupled model.",
+  "model_description": {
+    "type": "coupled DEVS",
+    "name": "<name>",
+    "description": "<detailed description of model purpose>",
+    "inputs": [
+      {"name": "<input_name>", "type": "<input_type>", "min": "<min_value>", "max": "<max_value>"}
+    ],
+    "outputs": [
+      {"name": "<output_name>", "type": "<output_type>", "description": "<output_description>"}
+    ]
+  },
+  "testing_methodology": "<testing method name>",
+  "requirements": "List the test case requirements for the method",
+  "output_format": "A list of input test cases for each input, specified in JSON format"
+}
