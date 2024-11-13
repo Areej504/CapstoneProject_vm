@@ -40,9 +40,28 @@ def query_gpt(prompt, json_string):
     return response.choices[0].message['content'].strip()
 
 
+def compare_and_decide(expected_results, actual_results):
+    """Compare expected and actual results, marking each test case as pass or fail."""
+    analysis = []
+
+    for i, expected in enumerate(expected_results):
+        # Get the corresponding actual result, if it exists
+        actual = actual_results[i] if i < len(actual_results) else None
+
+        # Compare expected and actual results, marking pass/fail
+        if actual == expected:
+            result = {"test_case": i + 1, "status": "pass"}
+        else:
+            result = {"test_case": i + 1, "status": "fail", "expected": expected, "actual": actual}
+
+        analysis.append(result)
+
+    return analysis
+
 # Main function to run the script
 def main():
-    json_file_path = "VMprompt.json"  # Path to your JSON input file
+    prompt_file_path = "VMprompt.json"  # Path to JSON input file
+    actual_results_file_path = "actual_results.json"  # Path to the actual output JSON file from the test driver
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")  # Format: Nov-06-2024_15-05-50
@@ -54,7 +73,7 @@ def main():
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
 
     # Load JSON data and query GPT
-    json_string = load_json(json_file_path)
+    json_string = load_json(prompt_file_path)
     result = query_gpt(prompt, json_string)
 
     # Parse the GPT response into JSON format if it's valid JSON
@@ -69,6 +88,20 @@ def main():
 
     print(f"GPT response saved to {output_file_path}")
 
+    # -------------------------------------------------------------------
+    # This area will be the code for passing the JSON test cases to the driver
+    # and getting the actual output of the Model to feed back to ChatGPT
+    # Load actual results from the test driver output
+    # actual_results = load_json(actual_results_file_path)
+    # ------------------------------------------------------------------
+
+    # Analyze the results
+    # pass_fail_analysis = compare_and_decide(expected_results, actual_results)
+
+    # Save the pass/fail analysis to a new JSON file
+    analysis_output_path = f"outputs/analysis_{timestamp}.json"
+    #save_json(pass_fail_analysis, analysis_output_path)
+    print(f"Pass/fail analysis saved to {analysis_output_path}")
 
 if __name__ == "__main__":
     main()
