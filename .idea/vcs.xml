@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/model/capstone_models" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/model/capstone_models/build/_deps/cadmium2-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/model/capstone_models/build/_deps/generic_shared_memory_model-src" vcs="Git" />
   </component>
 </project>

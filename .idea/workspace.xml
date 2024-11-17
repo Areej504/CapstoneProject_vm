@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44095394-71d6-428f-baa9-520d8f15f60f" name="Changes" comment="" />
+    <list default="true" id="44095394-71d6-428f-baa9-520d8f15f60f" name="Changes" comment="Added code for manually analyzing results">
+      <change beforePath="$PROJECT_DIR$/.idea/CapstoneProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CapstoneProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VMprompt.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_prompts/VMprompt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blank_prompt.json" beforeDir="false" afterPath="$PROJECT_DIR$/json_prompts/blank_prompt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json_gpt.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/json_gpt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/Basic_Adder_Variant_Goblin.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/Basic_Adder_Variant_Goblin.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_negative_numbers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_negative_numbers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_numbers_twice.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_numbers_twice.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_positive_numbers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/simulation_results/two_positive_numbers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/top_coupled_Basic_Adder.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/model/capstone_models/test/td_Basic_Adder/top_coupled_Basic_Adder.hpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,18 +49,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.json_gpt.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\CAPSTONE\CapstoneProject\json_prompts" />
+      <recent name="C:\Users\Admin\Desktop\CAPSTONE\CapstoneProject\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CapstoneProject" />
@@ -90,7 +113,30 @@
       <updated>1730746247918</updated>
       <workItem from="1730746261808" duration="1040000" />
       <workItem from="1730914802379" duration="875000" />
+      <workItem from="1730927422712" duration="1625000" />
+      <workItem from="1730937993519" duration="317000" />
+      <workItem from="1731514560382" duration="1363000" />
+      <workItem from="1731523723508" duration="2598000" />
+      <workItem from="1731533488325" duration="44000" />
+      <workItem from="1731883033005" duration="2906000" />
     </task>
+    <task id="LOCAL-00001" summary="Created batch file to setup dependencies">
+      <option name="closed" value="true" />
+      <created>1731517244935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731517244935</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added code for manually analyzing results">
+      <option name="closed" value="true" />
+      <created>1731525360844</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731525360844</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,9 +155,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added the script to query the json template and send to OpenAI" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the script to query the json template and send to OpenAI" />
+    <MESSAGE value="Created batch file to setup dependencies" />
+    <MESSAGE value="Added code for manually analyzing results" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code for manually analyzing results" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/json_gpt_py$json_gpt.coverage" NAME="json_gpt Coverage Results" MODIFIED="1731885817388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/CapstoneProject$openAI_json.coverage" NAME="json_gpt Coverage Results" MODIFIED="1730916958770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/json_gpt_py$main.coverage" NAME="main Coverage Results" MODIFIED="1731515098910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv("key.env")
+load_dotenv("../key.env")
 
 # Set up OpenAI API key from environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -14,7 +14,7 @@ def load_json(file_path):
     """Load JSON data from a file and return it as a string."""
     with open(file_path, 'r') as file:
         json_data = json.load(file)
-    return json.dumps(json_data)  # Convert JSON to a string
+    return json.dumps(json_data)
 
 def save_json(output_data, output_file_path):
     """Save the output data to a JSON file."""
@@ -39,7 +39,6 @@ def query_gpt(prompt, json_string):
 
     return response.choices[0].message['content'].strip()
 
-
 def compare_and_decide(expected_results, actual_results):
     """Compare expected and actual results, marking each test case as pass or fail."""
     analysis = []
@@ -60,7 +59,7 @@ def compare_and_decide(expected_results, actual_results):
 
 # Main function to run the script
 def main():
-    prompt_file_path = "VMprompt.json"  # Path to JSON input file
+    prompt_file_path = "../json_prompts/VMprompt.json"  # Path to JSON input file
     actual_results_file_path = "actual_results.json"  # Path to the actual output JSON file from the test driver
 
     # Generate a timestamp for the output file name
@@ -95,13 +94,13 @@ def main():
     # actual_results = load_json(actual_results_file_path)
     # ------------------------------------------------------------------
 
-    # Analyze the results
+    # Manually Analyze the results
     # pass_fail_analysis = compare_and_decide(expected_results, actual_results)
 
     # Save the pass/fail analysis to a new JSON file
-    analysis_output_path = f"outputs/analysis_{timestamp}.json"
+    #analysis_output_path = f"outputs/analysis_{timestamp}.json"
     #save_json(pass_fail_analysis, analysis_output_path)
-    print(f"Pass/fail analysis saved to {analysis_output_path}")
+    #print(f"Pass/fail analysis saved to {analysis_output_path}")
 
 if __name__ == "__main__":
     main()
