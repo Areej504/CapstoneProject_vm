@@ -40,3 +40,5 @@ def build_and_run_test_driver():
         if e.stderr:
             print(f"Error:\n{e.stderr}")
 
+if __name__ == '__main__':
+    build_and_run_test_driver()
