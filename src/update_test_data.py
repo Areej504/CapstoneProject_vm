@@ -2,12 +2,13 @@ import json
 import os
 import shutil
 
+
 def update_test_data(json_file, output_file):
     """
     Generate the test_data.hpp file based on the given JSON test cases.
-    :param json_file: Path to the JSON file containing test cases.
-    :param output_file: Path to the output C++ header file (test_data.hpp).
     """
+    import json
+
     # Load JSON test cases
     with open(json_file, 'r') as file:
         test_cases_data = json.load(file)
@@ -30,42 +31,44 @@ def update_test_data(json_file, output_file):
         file.write("}\n\n")
 
         # Generate `get_test_cases()`
-        file.write("std::map<int, std::map<std::string, std::vector<std::tuple<double, Variant_Goblin>>>> get_test_cases()\n{\n")
-        file.write("    std::map<int, std::map<std::string, std::vector<std::tuple<double, Variant_Goblin>>>> test_cases;\n")
+        file.write(
+            "std::map<int, std::map<std::string, std::vector<std::tuple<double, Variant_Goblin>>>> get_test_cases()\n{\n")
+        file.write(
+            "    std::map<int, std::map<std::string, std::vector<std::tuple<double, Variant_Goblin>>>> test_cases;\n")
         for i, test_case in enumerate(test_cases, start=1):
             file.write(f"    // Test Case: {i} Input Data\n")
             file.write(f"    std::map<std::string, std::vector<std::tuple<double, Variant_Goblin>>> tc{i};\n")
-            for input_name, input_value in test_case["input"].items():
+            for input_name, input_values in test_case["input"].items():
                 file.write(f"    std::vector<std::tuple<double, Variant_Goblin>> {input_name}_{i};\n")
-                if isinstance(input_value, list):
-                    for time, value in enumerate(input_value, start=1):
-                        file.write(f"    {input_name}_{i}.push_back(std::make_tuple({time}, int({value})));\n")
-                else:
-                    file.write(f"    {input_name}_{i}.push_back(std::make_tuple(1, int({input_value})));\n")
+                for value in input_values:
+                    time = value["time"]
+                    val = value["value"]
+                    file.write(f"    {input_name}_{i}.push_back(std::make_tuple({time}, int({val})));\n")
                 file.write(f"    tc{i}[\"{input_name}\"] = {input_name}_{i};\n")
             file.write(f"    test_cases[{i}] = tc{i};\n")
         file.write("    return test_cases;\n")
         file.write("}\n\n")
 
         # Generate `get_comparator_data()`
-        file.write("std::map<int, std::map<std::string, std::vector<std::tuple<int, Variant_Goblin>>>> get_comparator_data()\n{\n")
-        file.write("    std::map<int, std::map<std::string, std::vector<std::tuple<int, Variant_Goblin>>>> comparator_data;\n")
+        file.write(
+            "std::map<int, std::map<std::string, std::vector<std::tuple<int, Variant_Goblin>>>> get_comparator_data()\n{\n")
+        file.write(
+            "    std::map<int, std::map<std::string, std::vector<std::tuple<int, Variant_Goblin>>>> comparator_data;\n")
         for i, test_case in enumerate(test_cases, start=1):
             file.write(f"    // Test Case: {i} Expected Outputs\n")
             file.write(f"    std::map<std::string, std::vector<std::tuple<int, Variant_Goblin>>> eo{i};\n")
-            for output_name, output_value in test_case["expected_output"].items():
+            for output_name, output_values in test_case["expected_output"].items():
                 file.write(f"    std::vector<std::tuple<int, Variant_Goblin>> {output_name}_{i}_eo;\n")
-                if isinstance(output_value, list):
-                    for time, value in enumerate(output_value, start=1):
-                        file.write(f"    {output_name}_{i}_eo.push_back(std::make_tuple({time}, int({value})));\n")
-                else:
-                    file.write(f"    {output_name}_{i}_eo.push_back(std::make_tuple(1, int({output_value})));\n")
+                for value in output_values:
+                    time = value["time"]
+                    val = value["value"]
+                    file.write(f"    {output_name}_{i}_eo.push_back(std::make_tuple({time}, int({val})));\n")
                 file.write(f"    eo{i}[\"{output_name}\"] = {output_name}_{i}_eo;\n")
             file.write(f"    comparator_data[{i}] = eo{i};\n")
         file.write("    return comparator_data;\n")
         file.write("}\n\n")
 
-        # Generate `get_path_data()`
+        # Generate placeholder `get_path_data()` (optional for state transitions)
         file.write("std::map<int, std::map<std::string, std::vector<std::string>>> get_path_data()\n{\n")
         file.write("    std::map<int, std::map<std::string, std::vector<std::string>>> path_data;\n")
         for i in range(1, len(test_cases) + 1):
@@ -76,7 +79,7 @@ def update_test_data(json_file, output_file):
         file.write("    return path_data;\n")
         file.write("}\n\n")
 
-        # Generate `get_constructor_data()`
+        # Generate `get_constructor_data()` for constructor arguments
         file.write("std::map<int, std::map<int, Variant_Goblin>> get_constructor_data()\n{\n")
         file.write("    std::map<int, std::map<int, Variant_Goblin>> con_args_data;\n")
         for i in range(1, len(test_cases) + 1):

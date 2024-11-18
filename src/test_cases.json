@@ -3,39 +3,87 @@
         {
             "description": "Test addition of two positive numbers.",
             "input": {
-                "arg1": 50,
-                "arg2": 40
+                "arg1": [
+                    {
+                        "time": 1,
+                        "value": 50
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": 2,
+                        "value": 40
+                    }
+                ]
             },
             "expected_output": {
-                "sum": 90
+                "sum": [
+                    {
+                        "time": 3,
+                        "value": 90
+                    }
+                ]
             }
         },
         {
             "description": "Test addition of two negative numbers.",
             "input": {
-                "arg1": -20,
-                "arg2": -20
+                "arg1": [
+                    {
+                        "time": 1,
+                        "value": -20
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": 2,
+                        "value": -20
+                    }
+                ]
             },
             "expected_output": {
-                "sum": -40
+                "sum": [
+                    {
+                        "time": 3,
+                        "value": -40
+                    }
+                ]
             }
         },
         {
             "description": "Test sequential addition of two sets of numbers.",
             "input": {
                 "arg1": [
-                    5,
-                    5
+                    {
+                        "time": 1,
+                        "value": 5
+                    },
+                    {
+                        "time": 10,
+                        "value": 5
+                    }
                 ],
                 "arg2": [
-                    -10,
-                    5
+                    {
+                        "time": 3,
+                        "value": -10
+                    },
+                    {
+                        "time": 11,
+                        "value": 5
+                    }
                 ]
             },
             "expected_output": {
                 "sum": [
-                    5,
-                    10
+                    {
+                        "time": 4,
+                        "value": -5
+                    },
+                    {
+                        "time": 12,
+                        "value": 10
+                    }
                 ]
             }
         }
