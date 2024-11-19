@@ -44,6 +44,7 @@ def generate_test_cases_with_actual_output(test_cases, actual_outputs):
             test_case["actual_output"] = actual_outputs[updated_description]
         else:
             test_case["actual_output"] = {}
+            print(f"Warning: Could not find actual outputs for test case '{updated_description}'")
 
         updated_test_cases.append(test_case)
     return {"test_cases": updated_test_cases}
@@ -57,9 +58,9 @@ def save_test_cases_with_actual_output(output_file, data):
 
 def main():
     # File paths
-    test_cases_file = "test_cases.json"
+    test_cases_file = "../json_prompts/test_cases.json"
     simulation_dir = "../model/capstone_models/test/td_Basic_Adder/simulation_results"
-    output_file = "test_cases_with_actual_output.json"
+    output_file = "../json_prompts/test_cases_with_actual_output.json"
 
     # Process data
     test_cases = load_test_cases(test_cases_file)
