@@ -110,7 +110,7 @@ def move_to_capstone_models(test_data_file, capstone_dir):
 
 # Example usage
 if __name__ == "__main__":
-    json_file = "test_cases.json"  # Path to your JSON file
+    json_file = "../json_prompts/test_cases.json"  # Path to your JSON file
     output_file = "test_data.hpp"  # Temporary output file
     capstone_dir = "../model/capstone_models/"  # Path to capstone_models repository
 
