@@ -46,47 +46,18 @@
     "Test boundary values for arg1 and arg2, including minimum, typical, and maximum values (e.g., -1000, 0, 1000).",
     "Verify that the model correctly transitions between states WAIT_A1, WAIT_A2, and SUM.",
     "Ensure the sum output is accurate for positive, negative, and zero inputs.",
-    "Test scenarios where inputs are provided out of sequence or incomplete to validate error handling."
+    "Provide test scenarios where inputs are provided out of sequence or incomplete to validate error handling."
   ],
   "output_format": {
     "test_cases": [
       {
-        "description": "Test addition of two positive numbers.",
+        "description": "",
         "input": {
-          "arg1": [{ "time": 1, "value": 50 }],
-          "arg2": [{ "time": 2, "value": 40 }]
+          "arg1": [{ "time": "", "value": "" }],
+          "arg2": [{ "time": "", "value": "" }]
         },
         "expected_output": {
-          "sum": [{ "time": 3, "value": 90 }]
-        }
-      },
-      {
-        "description": "Test addition of two negative numbers.",
-        "input": {
-          "arg1": [{ "time": 1, "value": -20 }],
-          "arg2": [{ "time": 2, "value": -20 }]
-        },
-        "expected_output": {
-          "sum": [{ "time": 3, "value": -40 }]
-        }
-      },
-      {
-        "description": "Test sequential addition of two sets of numbers.",
-        "input": {
-          "arg1": [
-            { "time": 1, "value": 5 },
-            { "time": 10, "value": 5 }
-          ],
-          "arg2": [
-            { "time": 3, "value": -10 },
-            { "time": 11, "value": 5 }
-          ]
-        },
-        "expected_output": {
-          "sum": [
-            { "time": 4, "value": -5 },
-            { "time": 12, "value": 10 }
-          ]
+          "sum": [{ "time": "", "value": "" }]
         }
       }
     ]

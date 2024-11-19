@@ -107,12 +107,14 @@ def move_to_capstone_models(test_data_file, capstone_dir):
     shutil.move(test_data_file, destination)
     print(f"Moved test_data.hpp to {destination}")
 
-
-# Example usage
-if __name__ == "__main__":
+def main():
     json_file = "../json_prompts/test_cases.json"  # Path to your JSON file
     output_file = "test_data.hpp"  # Temporary output file
     capstone_dir = "../model/capstone_models/"  # Path to capstone_models repository
 
     update_test_data(json_file, output_file)
     move_to_capstone_models(output_file, capstone_dir)
+
+# Example usage
+if __name__ == "__main__":
+    main()
