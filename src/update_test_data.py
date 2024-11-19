@@ -112,7 +112,7 @@ def move_to_capstone_models(test_data_file, capstone_dir):
 if __name__ == "__main__":
     json_file = "test_cases.json"  # Path to your JSON file
     output_file = "test_data.hpp"  # Temporary output file
-    capstone_dir = "/Users/javeriasohail/Desktop/capstone_models/"  # Path to capstone_models repository
+    capstone_dir = "../model/capstone_models/"  # Path to capstone_models repository
 
     update_test_data(json_file, output_file)
     move_to_capstone_models(output_file, capstone_dir)
