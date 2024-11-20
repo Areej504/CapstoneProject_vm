@@ -56,9 +56,8 @@ def save_test_cases_with_actual_output(output_file, data):
         json.dump(data, file, indent=4)
 
 
-def main():
+def main(test_cases_file: str):
     # File paths
-    test_cases_file = "../json_prompts/test_cases.json"
     simulation_dir = "../model/capstone_models/test/td_Basic_Adder/simulation_results"
     output_file = "../json_prompts/test_cases_with_actual_output.json"
 

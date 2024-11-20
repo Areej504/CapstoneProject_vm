@@ -25,26 +25,11 @@
         "type": "Numeric",
         "description": "The output representing the sum of arg1 and arg2."
       }
-    ],
-    "states": [
-      {
-        "name": "WAIT_A1",
-        "description": "The state where the model is waiting for the first argument (arg1)."
-      },
-      {
-        "name": "WAIT_A2",
-        "description": "The state where the model is waiting for the second argument (arg2)."
-      },
-      {
-        "name": "SUM",
-        "description": "The state where the model calculates the sum of arg1 and arg2 and outputs the result."
-      }
     ]
   },
   "testing_methodology": "Boundary Analysis",
   "requirements": [
     "Test boundary values for arg1 and arg2, including minimum, typical, and maximum values (e.g., -1000, 0, 1000).",
-    "Verify that the model correctly transitions between states WAIT_A1, WAIT_A2, and SUM.",
     "Ensure the sum output is accurate for positive, negative, and zero inputs.",
     "Provide test scenarios where inputs are provided out of sequence or incomplete to validate error handling."
   ],
