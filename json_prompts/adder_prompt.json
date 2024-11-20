@@ -1,21 +1,21 @@
 {
   "model_description": {
-    "type": "atomic DEVS",
+    "type": "coupled DEVS",
     "name": "BasicAdder",
-    "description": "A basic adder model that accepts two numeric inputs (arg1 and arg2), processes them, and outputs their sum. The model transitions through states WAIT_A1, WAIT_A2, and SUM during its operation.",
+    "description": "A basic adder model that accepts two numeric inputs (arg1 and arg2), processes them, and outputs their sum.",
     "inputs": [
       {
         "name": "arg1",
         "type": "Numeric",
-        "min": "-1000",
-        "max": "1000",
+        "min": "-100",
+        "max": "100",
         "description": "The first input argument for the adder. Represents an integer."
       },
       {
         "name": "arg2",
         "type": "Numeric",
-        "min": "-1000",
-        "max": "1000",
+        "min": "-100",
+        "max": "100",
         "description": "The second input argument for the adder. Represents an integer."
       }
     ],
@@ -28,21 +28,18 @@
     ]
   },
   "testing_methodology": "Boundary Analysis",
-  "requirements": [
-    "Test boundary values for arg1 and arg2, including minimum, typical, and maximum values (e.g., -1000, 0, 1000).",
-    "Ensure the sum output is accurate for positive, negative, and zero inputs.",
-    "Provide test scenarios where inputs are provided out of sequence or incomplete to validate error handling."
-  ],
+  "requirements": "Generate multiple test cases to test boundary values for arg1 and arg2, including minimum, typical, and maximum values.",
   "output_format": {
     "test_cases": [
       {
+        "test_case_id" : "T1",
         "description": "",
         "input": {
-          "arg1": [{ "time": "", "value": "" }],
-          "arg2": [{ "time": "", "value": "" }]
+          "arg1": [{ "time": "0", "value": "" }],
+          "arg2": [{ "time": "3", "value": "" }]
         },
         "expected_output": {
-          "sum": [{ "time": "", "value": "" }]
+          "sum": [{ "time": "5", "value": "" }]
         }
       }
     ]

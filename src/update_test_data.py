@@ -26,7 +26,7 @@ def update_test_data(json_file, output_file):
         file.write("std::map<int, std::string> get_test_names()\n{\n")
         file.write("    std::map<int, std::string> names;\n")
         for i, test_case in enumerate(test_cases, start=1):
-            file.write(f"    names[{i}] = \"{test_case['description']}\";\n")
+            file.write(f"    names[{i}] = \"{test_case['test_case_id']}\";\n")
         file.write("    return names;\n")
         file.write("}\n\n")
 

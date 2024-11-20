@@ -1,74 +1,44 @@
 {
     "test_cases": [
         {
-            "description": "Test boundary values for arg1 and arg2, including minimum, typical, and maximum values",
+            "test_case_id": "T1",
+            "description": "Test case with minimum values for arg1 and arg2",
             "input": {
                 "arg1": [
                     {
                         "time": "0",
-                        "value": "-1000"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
-                    },
-                    {
-                        "time": "0",
-                        "value": "1000"
+                        "value": "-100"
                     }
                 ],
                 "arg2": [
                     {
-                        "time": "0",
-                        "value": "-1000"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
-                    },
-                    {
-                        "time": "0",
-                        "value": "1000"
+                        "time": "3",
+                        "value": "-100"
                     }
                 ]
             },
             "expected_output": {
                 "sum": [
                     {
-                        "time": "0",
-                        "value": "-2000"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
-                    },
-                    {
-                        "time": "0",
-                        "value": "2000"
+                        "time": "5",
+                        "value": "-200"
                     }
                 ]
             },
             "actual_output": {
                 "sum": [
                     {
-                        "time": 5,
-                        "value": -1000
+                        "time": 8,
+                        "value": -200
                     }
                 ]
             }
         },
         {
-            "description": "Ensure the sum output is accurate for positive, negative, and zero inputs",
+            "test_case_id": "T2",
+            "description": "Test case with typical values for arg1 and arg2",
             "input": {
                 "arg1": [
-                    {
-                        "time": "0",
-                        "value": "-500"
-                    },
-                    {
-                        "time": "0",
-                        "value": "500"
-                    },
                     {
                         "time": "0",
                         "value": "0"
@@ -76,85 +46,58 @@
                 ],
                 "arg2": [
                     {
-                        "time": "0",
-                        "value": "750"
-                    },
-                    {
-                        "time": "0",
-                        "value": "-250"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
+                        "time": "3",
+                        "value": "5"
                     }
                 ]
             },
             "expected_output": {
                 "sum": [
                     {
-                        "time": "0",
-                        "value": "250"
-                    },
-                    {
-                        "time": "0",
-                        "value": "250"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
+                        "time": "5",
+                        "value": "5"
                     }
                 ]
             },
             "actual_output": {
                 "sum": [
                     {
-                        "time": 5,
-                        "value": -750
+                        "time": 8,
+                        "value": 5
                     }
                 ]
             }
         },
         {
-            "description": "Provide test scenarios where inputs are provided out of sequence or incomplete to validate error handling",
+            "test_case_id": "T3",
+            "description": "Test case with maximum values for arg1 and arg2",
             "input": {
                 "arg1": [
                     {
                         "time": "0",
                         "value": "100"
-                    },
-                    {
-                        "time": "2",
-                        "value": "200"
                     }
                 ],
                 "arg2": [
                     {
-                        "time": "1",
-                        "value": "50"
+                        "time": "3",
+                        "value": "100"
                     }
                 ]
             },
             "expected_output": {
                 "sum": [
                     {
-                        "time": "0",
-                        "value": "0"
-                    },
-                    {
-                        "time": "1",
-                        "value": "0"
-                    },
-                    {
-                        "time": "2",
-                        "value": "300"
+                        "time": "5",
+                        "value": "200"
                     }
                 ]
             },
             "actual_output": {
                 "sum": [
                     {
-                        "time": 7,
-                        "value": 150
+                        "time": 8,
+                        "value": 200
                     }
                 ]
             }
