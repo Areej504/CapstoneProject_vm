@@ -1,7 +1,7 @@
 {
     "test_cases": [
         {
-            "description": "three positive numbers",
+            "description": "two positive numbers",
             "input": {
                 "arg1": [
                     {
@@ -24,7 +24,14 @@
                     }
                 ]
             },
-            "actual_output": {}
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": 90
+                    }
+                ]
+            }
         },
         {
             "description": "two negative numbers",
