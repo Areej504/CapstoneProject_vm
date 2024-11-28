@@ -34,10 +34,10 @@ def generate_test_cases_with_actual_output(test_cases, actual_outputs):
     """
     updated_test_cases = []
     for test_case in test_cases["test_cases"]:
-        description = test_case["description"]
-        # Update the description to match the filename format
-        updated_description = description.replace("_", " ")
-        test_case["description"] = updated_description
+        test_case_id = test_case["test_case_id"]
+        # Update the test_case_id to match the filename format
+        updated_description = test_case_id.replace("_", " ")
+        test_case["test_case_id"] = updated_description
 
         # Inject actual outputs if they exist
         if updated_description in actual_outputs:
@@ -56,9 +56,8 @@ def save_test_cases_with_actual_output(output_file, data):
         json.dump(data, file, indent=4)
 
 
-def main():
+def main(test_cases_file: str):
     # File paths
-    test_cases_file = "../json_prompts/test_cases.json"
     simulation_dir = "../model/capstone_models/test/td_Basic_Adder/simulation_results"
     output_file = "../json_prompts/test_cases_with_actual_output.json"
 
