@@ -28,7 +28,7 @@
     ]
   },
   "testing_methodology": "Boundary Analysis",
-  "requirements": "Generate multiple test cases to test boundary values for arg1 and arg2, including minimum, typical, and maximum values.",
+    "requirements": "Generate multiple test cases to test boundary values for arg1 and arg2, including minimum, typical, and maximum values.",
   "output_format": {
     "test_cases": [
       {

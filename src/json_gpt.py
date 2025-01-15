@@ -56,14 +56,14 @@ def generate_test_cases():
 
     # Load JSON data and query GPT
     json_string = load_json(prompt_file_path)
-    result = query_gpt(prompt, json_string)
+    response = query_gpt(prompt, json_string)
 
     # Parse the GPT response into JSON format if it's valid JSON
     try:
-        output_data = json.loads(result)
+        output_data = json.loads(response)
     except json.JSONDecodeError:
         # If the result is not valid JSON, wrap it in a dictionary
-        output_data = {"response": result}
+        output_data = {"response": response}
 
     # Save the result to an output JSON file
     save_json(output_data, output_file_path)
