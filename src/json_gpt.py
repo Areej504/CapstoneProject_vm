@@ -28,13 +28,13 @@ def query_gpt(prompt, json_string):
 
     # Send request to OpenAI API
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a helpful assistant that formats output in JSON schema."},
             {"role": "user", "content": input_text}
         ],
         max_tokens=1000,  # Increased token limit for longer responses
-        temperature=0  # Set to 0 for more predictable responses
+        temperature=0.7 # Set to 0 for more predictable responses
     )
 
     return response.choices[0].message['content'].strip()
