@@ -39,7 +39,7 @@
           "arg2": [{ "time": "3", "value": "" }]
         },
         "expected_output": {
-          "sum": [{ "time": "5", "value": "" }]
+          "sum": [{ "time": "", "value": "" }]
         }
       }
     ]
