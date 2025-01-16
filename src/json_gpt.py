@@ -86,8 +86,8 @@ def analyze_test_results():
 
     # Prompt for GPT analysis
     analysis_prompt = (
-        "Given the adder prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case. "
-        "Provide the analysis in the following JSON format:\n"
+        "Given the adder prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result. "
+        "Provide the analysis in the following raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.:\n"
         "{\n"
         "  \"test_case_id\": {\n"
         "    \"expected_result\": \"<expected result>\",\n"
