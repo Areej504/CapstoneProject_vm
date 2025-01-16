@@ -34,7 +34,7 @@ def query_gpt(prompt, json_string):
             {"role": "user", "content": input_text}
         ],
         max_tokens=1000,  # Increased token limit for longer responses
-        temperature=0.7 # Set to 0 for more predictable responses
+        temperature=1# Set to 0 for more predictable responses
     )
 
     return response.choices[0].message['content'].strip()
