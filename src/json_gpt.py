@@ -28,7 +28,7 @@ def query_gpt(prompt, json_string):
 
     # Send request to OpenAI API
     response = openai.ChatCompletion.create(
-        model="gpt-4o",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant that formats output in JSON schema."},
             {"role": "user", "content": input_text}
@@ -72,6 +72,52 @@ def generate_test_cases():
 
     return output_file_path
 
+def analyze_test_results():
+    """
+    Analyzes the pass/fail status of test cases in results.json using adder_prompt.json as context.
+    """
+
+    adder_prompt_path = "../json_prompts/adder_prompt.json"
+    results_path = "../json_prompts/test_cases_with_actual_output.json"
+
+    # Load JSON data from the specified paths
+    adder_prompt = load_json(adder_prompt_path)
+    results = load_json(results_path)
+
+    # Prompt for GPT analysis
+    analysis_prompt = (
+        "Given the adder prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case. "
+        "Provide the analysis in the following JSON format:\n"
+        "{\n"
+        "  \"test_case_id\": {\n"
+        "    \"expected_result\": \"<expected result>\",\n"
+        "    \"actual_result\": \"<actual result>\",\n"
+        "    \"pass\": true/false,\n"
+        "    \"remarks\": \"\"\n"
+        "  },\n"
+        "  ...\n"
+        "}"
+    )
+
+    # Query GPT for analysis
+    combined_json = f"Adder Prompt:\n{adder_prompt}\n\nTest Results:\n{results}"
+    response = query_gpt(analysis_prompt, combined_json)
+
+    # Generate a timestamp for the output file name
+    timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
+    output_file_path = f"outputs/analysis_{timestamp}.json"
+
+    # Parse the GPT response into JSON format if it's valid JSON
+    try:
+        analysis_data = json.loads(response)
+    except json.JSONDecodeError:
+        analysis_data = {"error": "Failed to parse GPT response as JSON", "raw_response": response}
+
+    # Save to an output JSON file
+    save_json(analysis_data, output_file_path)
+
+    print(f"Test analysis saved to {output_file_path}")
+
 
 if __name__ == "__main__":
-    generate_test_cases()
+    analyze_test_results()
