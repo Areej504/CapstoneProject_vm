@@ -1,0 +1,38 @@
+{
+    "T1": {
+        "expected_result": "10000",
+        "actual_result": "-200",
+        "pass": false,
+        "remarks": "The actual result is incorrect. Expected the product of -100 and -100 to be 10000, but got -200 instead."
+    },
+    "T2": {
+        "expected_result": "10000",
+        "actual_result": "200",
+        "pass": false,
+        "remarks": "The actual result is incorrect. Expected the product of 100 and 100 to be 10000, but got 200 instead."
+    },
+    "T3": {
+        "expected_result": "2500",
+        "actual_result": "100",
+        "pass": false,
+        "remarks": "The actual result is incorrect. Expected the product of 50 and 50 to be 2500, but got 100 instead."
+    },
+    "T4": {
+        "expected_result": "0",
+        "actual_result": "0",
+        "pass": true,
+        "remarks": "The actual result is correct. The product of 0 and 0 is 0."
+    },
+    "T5": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "The actual result is incorrect. Expected the product of -100 and 100 to be -10000, but got 0 instead."
+    },
+    "T6": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "The actual result is incorrect. Expected the product of 100 and -100 to be -10000, but got 0 instead."
+    }
+}
