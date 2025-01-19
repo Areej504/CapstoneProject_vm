@@ -1,0 +1,160 @@
+{
+    "test_cases": [
+        {
+            "test_case_id": "T1",
+            "description": "Minimum boundary values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Maximum boundary values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Typical positive values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "20"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "1000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T4",
+            "description": "Typical negative values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-20"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "1000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T5",
+            "description": "Mixed boundary values, one minimum and one maximum.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "-10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T6",
+            "description": "Zero boundary value for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        }
+    ]
+}

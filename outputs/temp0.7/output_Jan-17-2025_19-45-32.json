@@ -1,0 +1,186 @@
+{
+    "test_cases": [
+        {
+            "test_case_id": "T1",
+            "description": "Test with minimum boundary values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Test with maximum boundary values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Test with arg1 at minimum and arg2 at maximum boundary values",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "-10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T4",
+            "description": "Test with arg1 at maximum and arg2 at minimum boundary values",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "-10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T5",
+            "description": "Test with typical values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "20"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "1000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T6",
+            "description": "Test with zero value for arg1 and typical value for arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "20"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T7",
+            "description": "Test with typical value for arg1 and zero value for arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        }
+    ]
+}

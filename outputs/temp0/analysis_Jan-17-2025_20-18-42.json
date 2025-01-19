@@ -1,0 +1,44 @@
+{
+    "T1": {
+        "expected_result": "10000",
+        "actual_result": "-200",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of -100 and -100 is 10000, but the model returned -200. This indicates a possible error in the multiplication logic or sign handling."
+    },
+    "T2": {
+        "expected_result": "10000",
+        "actual_result": "200",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of 100 and 100 is 10000, but the model returned 200. This suggests a potential issue with the multiplication logic."
+    },
+    "T3": {
+        "expected_result": "100",
+        "actual_result": "52",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of 50 and 2 is 100, but the model returned 52. This indicates a possible error in the calculation logic."
+    },
+    "T4": {
+        "expected_result": "0",
+        "actual_result": "100",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of 0 and 100 is 0, but the model returned 100. This suggests an issue with handling zero values in multiplication."
+    },
+    "T5": {
+        "expected_result": "0",
+        "actual_result": "100",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of 100 and 0 is 0, but the model returned 100. This indicates a problem with handling zero values in multiplication."
+    },
+    "T6": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of -100 and 100 is -10000, but the model returned 0. This suggests an error in handling negative values or the multiplication logic."
+    },
+    "T7": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The expected product of 100 and -100 is -10000, but the model returned 0. This indicates a potential issue with handling negative values or the multiplication logic."
+    }
+}

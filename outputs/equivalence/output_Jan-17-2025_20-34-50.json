@@ -1,0 +1,160 @@
+{
+    "test_cases": [
+        {
+            "test_case_id": "T1",
+            "description": "Minimum values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Maximum values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Typical values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "2"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T4",
+            "description": "Zero values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T5",
+            "description": "Negative and positive values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "20"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "-1000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T6",
+            "description": "Positive and negative values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "75"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-1"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "3",
+                        "value": "-75"
+                    }
+                ]
+            }
+        }
+    ]
+}
