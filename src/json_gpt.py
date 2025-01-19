@@ -34,7 +34,7 @@ def query_gpt(prompt, json_string):
             {"role": "user", "content": input_text}
         ],
         max_tokens=1000,  # Increased token limit for longer responses
-        temperature=1# Set to 0 for more predictable responses
+        temperature=0.7# Set to 0 for more predictable responses
     )
 
     return response.choices[0].message['content'].strip()
@@ -47,9 +47,9 @@ def generate_test_cases():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")  # Format: Nov-06-2024_15-05-50
-    output_file_path = f"outputs/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
+    output_file_path = f"../outputs/equivalence/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
 
-    prompt = "Based on the JSON data provided, generate input test cases for black box testing of a DEVS (Discrete Event System Specification) model in the output_format specified."
+    prompt = "Based on the JSON data provided, generate input test cases for black box testing of a DEVS (Discrete Event System Specification) model in raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON."
 
     # Ensure the output directory exists
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
@@ -86,26 +86,26 @@ def analyze_test_results():
 
     # Prompt for GPT analysis
     analysis_prompt = (
-        "Given the adder prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result. "
+        "Given the prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result, ignoring the time result. "
         "Provide the analysis in the following raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.:\n"
         "{\n"
         "  \"test_case_id\": {\n"
         "    \"expected_result\": \"<expected result>\",\n"
         "    \"actual_result\": \"<actual result>\",\n"
         "    \"pass\": true/false,\n"
-        "    \"remarks\": \"\"\n"
+        "    \"remarks\": \"<reason for failure and diagnosis of the issue, if applicable>\"\n"
         "  },\n"
         "  ...\n"
         "}"
     )
 
     # Query GPT for analysis
-    combined_json = f"Adder Prompt:\n{adder_prompt}\n\nTest Results:\n{results}"
+    combined_json = f"Prompt:\n{adder_prompt}\n\nTest Results:\n{results}"
     response = query_gpt(analysis_prompt, combined_json)
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
-    output_file_path = f"outputs/analysis_{timestamp}.json"
+    output_file_path = f"../outputs/equivalence/analysis_{timestamp}.json"
 
     # Parse the GPT response into JSON format if it's valid JSON
     try:

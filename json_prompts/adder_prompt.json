@@ -2,7 +2,7 @@
   "model_description": {
     "type": "coupled DEVS",
     "name": "BasicAdder",
-    "description": "A basic adder model that accepts two numeric inputs (arg1 and arg2), processes them, and outputs their sum.",
+    "description": "A basic adder model that accepts two numeric inputs (arg1 and arg2), processes them, and outputs their product.",
     "inputs": [
       {
         "name": "arg1",
@@ -28,7 +28,7 @@
     ]
   },
   "testing_methodology": "Boundary Analysis",
-    "requirements": "Generate multiple test cases to test boundary values for arg1 and arg2, including minimum, typical, and maximum values.",
+    "requirements": "Generate multiple test cases to test the boundaries for arg1 and arg2, including minimum, typical, and maximum values.",
   "output_format": {
     "test_cases": [
       {
