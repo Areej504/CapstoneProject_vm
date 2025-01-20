@@ -47,7 +47,7 @@ def generate_test_cases():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")  # Format: Nov-06-2024_15-05-50
-    output_file_path = f"../outputs/equivalence/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
+    output_file_path = f"../outputs/temp0.7/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
 
     prompt = "Based on the JSON data provided, generate input test cases for black box testing of a DEVS (Discrete Event System Specification) model in raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON."
 
@@ -86,7 +86,7 @@ def analyze_test_results():
 
     # Prompt for GPT analysis
     analysis_prompt = (
-        "Given the prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result, ignoring the time result. "
+        "Given the prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result, ignoring the time result and analyze any trends with failed results. "
         "Provide the analysis in the following raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.:\n"
         "{\n"
         "  \"test_case_id\": {\n"
@@ -105,7 +105,7 @@ def analyze_test_results():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
-    output_file_path = f"../outputs/equivalence/analysis_{timestamp}.json"
+    output_file_path = f"../outputs/temp0.7/analysis_{timestamp}.json"
 
     # Parse the GPT response into JSON format if it's valid JSON
     try:
