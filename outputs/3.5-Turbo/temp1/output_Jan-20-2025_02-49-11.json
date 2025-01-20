@@ -2,9 +2,13 @@
     "test_cases": [
         {
             "test_case_id": "T1",
-            "description": "",
+            "description": "Test case to verify boundary analysis for arg1 and arg2 with empty values",
             "input": {
                 "arg1": [
+                    {
+                        "time": "0",
+                        "value": ""
+                    },
                     {
                         "time": "0",
                         "value": "-100"
@@ -19,6 +23,10 @@
                     }
                 ],
                 "arg2": [
+                    {
+                        "time": "3",
+                        "value": ""
+                    },
                     {
                         "time": "3",
                         "value": "-100"
@@ -37,23 +45,7 @@
                 "product": [
                     {
                         "time": "",
-                        "value": "-10000"
-                    },
-                    {
-                        "time": "",
-                        "value": "0"
-                    },
-                    {
-                        "time": "",
-                        "value": "10000"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": -200
+                        "value": ""
                     }
                 ]
             }

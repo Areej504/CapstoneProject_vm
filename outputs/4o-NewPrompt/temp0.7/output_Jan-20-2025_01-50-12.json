@@ -1,0 +1,134 @@
+{
+    "test_cases": [
+        {
+            "test_case_id": "T1",
+            "description": "Testing with minimum boundary values for arg1 and arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Testing with maximum boundary values for arg1 and arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Testing with typical boundary values for arg1 and arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "50"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T4",
+            "description": "Testing with mixed boundary values for arg1 and arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "-10000"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T5",
+            "description": "Testing with zero values for both arg1 and arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            }
+        }
+    ]
+}

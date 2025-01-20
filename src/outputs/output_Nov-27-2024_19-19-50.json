@@ -1,0 +1,82 @@
+{
+    "test_cases": [
+        {
+            "test_case_id": "T1",
+            "description": "Test case with minimum values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "5",
+                        "value": "-200"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Test case with typical values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "5"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "5",
+                        "value": "5"
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Test case with maximum values for arg1 and arg2",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "sum": [
+                    {
+                        "time": "5",
+                        "value": "200"
+                    }
+                ]
+            }
+        }
+    ]
+}

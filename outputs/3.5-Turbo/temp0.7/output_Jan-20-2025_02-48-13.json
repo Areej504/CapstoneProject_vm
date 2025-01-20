@@ -37,7 +37,7 @@
                 "product": [
                     {
                         "time": "",
-                        "value": "-10000"
+                        "value": "10000"
                     },
                     {
                         "time": "",
@@ -46,14 +46,6 @@
                     {
                         "time": "",
                         "value": "10000"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": -200
                     }
                 ]
             }

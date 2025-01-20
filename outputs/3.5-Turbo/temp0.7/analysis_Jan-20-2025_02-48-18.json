@@ -1,0 +1,8 @@
+{
+    "T1": {
+        "expected_result": "10000",
+        "actual_result": "10000",
+        "pass": true,
+        "remarks": ""
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "T1": {
+        "expected_result": "-10000, 0, 10000",
+        "actual_result": "-200",
+        "pass": false,
+        "remarks": "The actual output does not match the expected result. The product calculation is incorrect."
+    }
+}

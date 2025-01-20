@@ -1,0 +1,32 @@
+{
+    "T1": {
+        "expected_result": -200,
+        "actual_result": -200,
+        "pass": true,
+        "remarks": "The value result is correct, but there is a mismatch in time."
+    },
+    "T2": {
+        "expected_result": 200,
+        "actual_result": 200,
+        "pass": true,
+        "remarks": "The value result is correct, but there is a mismatch in time."
+    },
+    "T3": {
+        "expected_result": 0,
+        "actual_result": 0,
+        "pass": true,
+        "remarks": "The value result is correct, but there is a mismatch in time."
+    },
+    "T4": {
+        "expected_result": 80,
+        "actual_result": 80,
+        "pass": true,
+        "remarks": "The value result is correct, but there is a mismatch in time."
+    },
+    "T5": {
+        "expected_result": -80,
+        "actual_result": -80,
+        "pass": true,
+        "remarks": "The value result is correct, but there is a mismatch in time."
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "T1": {
+        "expected_result": "10000",
+        "actual_result": "-200",
+        "pass": false,
+        "remarks": "Expected the product of -100 * -100 to be 10000, but the actual result was -200. The issue seems to be that the actual output is summing values instead of multiplying them."
+    },
+    "T2": {
+        "expected_result": "10000",
+        "actual_result": "200",
+        "pass": false,
+        "remarks": "Expected the product of 100 * 100 to be 10000, but the actual result was 200. The actual output appears to sum the values instead of multiplying them."
+    },
+    "T3": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "Expected the product of -100 * 100 to be -10000, but the actual result was 0. The output is not calculating the product, possibly summing inputs instead."
+    },
+    "T4": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "Expected the product of 100 * -100 to be -10000, but the actual result was 0. The actual result suggests a miscalculation, likely summing inputs."
+    },
+    "T5": {
+        "expected_result": "0",
+        "actual_result": "0",
+        "pass": true,
+        "remarks": "The expected and actual results are both 0, indicating correct multiplication."
+    },
+    "T6": {
+        "expected_result": "1000",
+        "actual_result": "70",
+        "pass": false,
+        "remarks": "Expected the product of 50 * 20 to be 1000, but the actual result was 70. The operation seems to be summing the inputs instead."
+    },
+    "T7": {
+        "expected_result": "-1200",
+        "actual_result": "-10",
+        "pass": false,
+        "remarks": "Expected the product of 30 * -40 to be -1200, but the actual result was -10. The actual result suggests summing instead of multiplying."
+    },
+    "T8": {
+        "expected_result": "-1200",
+        "actual_result": "10",
+        "pass": false,
+        "remarks": "Expected the product of -30 * 40 to be -1200, but the actual result was 10. The issue appears to be summing the inputs instead of multiplying."
+    }
+}

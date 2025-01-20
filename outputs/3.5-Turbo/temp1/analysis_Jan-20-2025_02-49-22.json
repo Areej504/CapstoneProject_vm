@@ -1,0 +1,10 @@
+{
+    "test_cases": {
+        "T1": {
+            "expected_result": "-10000",
+            "actual_result": "-200",
+            "pass": false,
+            "remarks": "The actual product result doesn't match the expected value for test case T1."
+        }
+    }
+}

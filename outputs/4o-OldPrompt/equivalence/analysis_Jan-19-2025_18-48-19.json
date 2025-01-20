@@ -1,0 +1,32 @@
+{
+    "T1": {
+        "expected_result": -200,
+        "actual_result": -200,
+        "pass": true,
+        "remarks": ""
+    },
+    "T2": {
+        "expected_result": 200,
+        "actual_result": 200,
+        "pass": true,
+        "remarks": ""
+    },
+    "T3": {
+        "expected_result": 0,
+        "actual_result": 0,
+        "pass": true,
+        "remarks": ""
+    },
+    "T4": {
+        "expected_result": 80,
+        "actual_result": 80,
+        "pass": true,
+        "remarks": ""
+    },
+    "T5": {
+        "expected_result": -80,
+        "actual_result": -80,
+        "pass": true,
+        "remarks": ""
+    }
+}
