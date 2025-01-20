@@ -1,0 +1,38 @@
+{
+    "T1": {
+        "expected_result": "10000",
+        "actual_result": "-200",
+        "pass": false,
+        "remarks": "The actual result is the sum of inputs instead of the product. The model seems to be calculating the sum instead of the product."
+    },
+    "T2": {
+        "expected_result": "10000",
+        "actual_result": "200",
+        "pass": false,
+        "remarks": "The actual result is the sum of inputs instead of the product. The model seems to be calculating the sum instead of the product."
+    },
+    "T3": {
+        "expected_result": "100",
+        "actual_result": "52",
+        "pass": false,
+        "remarks": "The actual result is the sum of inputs instead of the product. The model seems to be calculating the sum instead of the product."
+    },
+    "T4": {
+        "expected_result": "0",
+        "actual_result": "0",
+        "pass": true,
+        "remarks": "The actual result matches the expected result. The model correctly calculates the product for zero inputs."
+    },
+    "T5": {
+        "expected_result": "-100",
+        "actual_result": "48",
+        "pass": false,
+        "remarks": "The actual result is the sum of inputs instead of the product. The model seems to be calculating the sum instead of the product."
+    },
+    "T6": {
+        "expected_result": "-10000",
+        "actual_result": "0",
+        "pass": false,
+        "remarks": "The actual result is incorrect. The model seems to be calculating the sum instead of the product."
+    }
+}

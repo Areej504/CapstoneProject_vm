@@ -22,7 +22,7 @@ def build_and_run_test_driver():
             cwd=build_dir
         )
 
-        executable_path = os.path.join(build_dir, "test", "Debug", "td_Basic_Adder.exe")
+        executable_path = os.path.join(build_dir, "test", "td_Basic_Adder.exe")
 
         # Ensure executable exists
         if not os.path.exists(executable_path):
