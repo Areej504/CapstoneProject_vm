@@ -1,0 +1,47 @@
+{
+  "model_description": {
+    "type": "coupled DEVS",
+    "name": "BasicMultiplier",
+    "description": "A basic multiplier model that accepts two numeric inputs (arg1 and arg2), processes them, and outputs their product.",
+    "inputs": [
+      {
+        "name": "arg1",
+        "type": "Numeric",
+        "min": "-100",
+        "max": "100",
+        "description": "The first input argument for the multiplier. Represents an integer."
+      },
+      {
+        "name": "arg2",
+        "type": "Numeric",
+        "min": "-100",
+        "max": "100",
+        "description": "The second input argument for the multiplier. Represents an integer."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "product",
+        "type": "Numeric",
+        "description": "The output representing the product of arg1 and arg2."
+      }
+    ]
+  },
+  "testing_methodology": "Boundary Analysis",
+    "requirements": "Generate multiple test cases to test the boundaries for arg1 and arg2, including minimum, typical, and maximum values.",
+  "output_format": {
+    "test_cases": [
+      {
+        "test_case_id" : "T1",
+        "description": "",
+        "input": {
+          "arg1": [{ "time": "0", "value": "" }],
+          "arg2": [{ "time": "3", "value": "" }]
+        },
+        "expected_output": {
+          "sum": [{ "time": "", "value": "" }]
+        }
+      }
+    ]
+  }
+}

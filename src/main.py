@@ -1,7 +1,6 @@
 from src import json_gpt, run_td, update_test_data, update_json_output
 
 if __name__ == '__main__':
-
     for i in range(5):
         #step 1 : query chatgpt to generate test case inputs
         tc_file_path = json_gpt.generate_test_cases()
