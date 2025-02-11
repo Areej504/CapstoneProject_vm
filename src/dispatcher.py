@@ -43,11 +43,11 @@ def generate_test_cases():
     """function to load prompt, query chatgpt and save the response in /outputs.
         :return the output file path containing generated test cases
     """
-    prompt_file_path = "../json_prompts/multiplier_prompt.json"  # Path to JSON input file
+    prompt_file_path = "../json_prompts/VM_prompt.json"  # Path to JSON input file
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")  # Format: Nov-06-2024_15-05-50
-    output_file_path = f"../outputs/demo/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
+    output_file_path = f"../outputs/tests/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
 
     prompt = "Based on the JSON data provided, generate input test cases for black box testing of a DEVS (Discrete Event System Specification) model in raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON."
 
@@ -75,10 +75,10 @@ def generate_test_cases():
 
 def analyze_test_results():
     """
-    Analyzes the pass/fail status of test cases in results.json using adder_prompt.json as context.
+    Analyzes the pass/fail status of test cases in results.json using VM_prompt.json as context.
     """
 
-    adder_prompt_path = "../json_prompts/multiplier_prompt.json"
+    adder_prompt_path = "../json_prompts/VM_prompt.json"
     results_path = "../json_prompts/test_cases_with_actual_output.json"
 
     # Load JSON data from the specified paths
@@ -106,7 +106,7 @@ def analyze_test_results():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
-    output_file_path = f"../outputs/demo/analysis_{timestamp}.json"
+    output_file_path = f"../outputs/oracle/analysis_{timestamp}.json"
 
     # Parse the GPT response into JSON format if it's valid JSON
     try:
@@ -126,7 +126,7 @@ def feedback_loop(results_path):
     Initiates a feedback loop to generate more tests cases.
     """
 
-    adder_prompt_path = "../json_prompts/multiplier_prompt.json"
+    adder_prompt_path = "../json_prompts/VM_prompt.json"
 
     # Load JSON data from the specified paths
     adder_prompt = load_json(adder_prompt_path)
@@ -157,4 +157,4 @@ def feedback_loop(results_path):
 
 
 if __name__ == "__main__":
-    analyze_test_results()
+    generate_test_cases()

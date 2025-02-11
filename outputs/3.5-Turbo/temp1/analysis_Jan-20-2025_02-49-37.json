@@ -1,8 +1,0 @@
-{
-    "T1": {
-        "expected_result": "-10000, 0, 10000",
-        "actual_result": "-200",
-        "pass": false,
-        "remarks": "Actual result does not match expected result. Test case T1 failed."
-    }
-}
