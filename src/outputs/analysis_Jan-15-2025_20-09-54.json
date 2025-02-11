@@ -1,4 +1,0 @@
-{
-    "error": "Failed to parse GPT response as JSON",
-    "raw_response": "```json\n{\n  \"T1\": {\n    \"expected_result\": \"-200\",\n    \"actual_result\": \"-200\",\n    \"pass\": false,\n    \"remarks\": \"Sum value is correct but the output is delayed. Expected at time 5, received at time 8.\"\n  },\n  \"T2\": {\n    \"expected_result\": \"5\",\n    \"actual_result\": \"5\",\n    \"pass\": false,\n    \"remarks\": \"Sum value is correct but the output is delayed. Expected at time 5, received at time 8.\"\n  },\n  \"T3\": {\n    \"expected_result\": \"200\",\n    \"actual_result\": \"200\",\n    \"pass\": false,\n    \"remarks\": \"Sum value is correct but the output is delayed. Expected at time 5, received at time 8.\"\n  }\n}\n```"
-}
