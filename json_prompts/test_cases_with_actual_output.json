@@ -2,49 +2,25 @@
     "test_cases": [
         {
             "test_case_id": "T1",
-            "description": "",
+            "description": "Test with minimum boundary values for both inputs.",
             "input": {
                 "arg1": [
                     {
                         "time": "0",
                         "value": "-100"
-                    },
-                    {
-                        "time": "0",
-                        "value": "0"
-                    },
-                    {
-                        "time": "0",
-                        "value": "100"
                     }
                 ],
                 "arg2": [
                     {
                         "time": "3",
                         "value": "-100"
-                    },
-                    {
-                        "time": "3",
-                        "value": "0"
-                    },
-                    {
-                        "time": "3",
-                        "value": "100"
                     }
                 ]
             },
             "expected_output": {
                 "product": [
                     {
-                        "time": "",
-                        "value": "-10000"
-                    },
-                    {
-                        "time": "",
-                        "value": "0"
-                    },
-                    {
-                        "time": "",
+                        "time": "3",
                         "value": "10000"
                     }
                 ]
@@ -54,6 +30,176 @@
                     {
                         "time": 8,
                         "value": -200
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T2",
+            "description": "Test with maximum boundary values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "100"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "100"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "10000"
+                    }
+                ]
+            },
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": 200
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T3",
+            "description": "Test with a typical positive value for arg1 and a typical negative value for arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "50"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "-50"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "-2500"
+                    }
+                ]
+            },
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": 0
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T4",
+            "description": "Test with a zero value for arg1 and a typical value for arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "0"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "75"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": 75
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T5",
+            "description": "Test with typical values for both inputs.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "20"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "30"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "600"
+                    }
+                ]
+            },
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": 50
+                    }
+                ]
+            }
+        },
+        {
+            "test_case_id": "T6",
+            "description": "Test with a negative value for arg1 and zero value for arg2.",
+            "input": {
+                "arg1": [
+                    {
+                        "time": "0",
+                        "value": "-60"
+                    }
+                ],
+                "arg2": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "expected_output": {
+                "product": [
+                    {
+                        "time": "3",
+                        "value": "0"
+                    }
+                ]
+            },
+            "actual_output": {
+                "sum": [
+                    {
+                        "time": 8,
+                        "value": -60
                     }
                 ]
             }

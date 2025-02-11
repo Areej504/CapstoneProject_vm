@@ -28,13 +28,13 @@ def query_gpt(prompt, json_string):
 
     # Send request to OpenAI API
     response = openai.ChatCompletion.create(
-        model="o1-mini",
+        model="gpt-4o",
         messages=[
-            {"role": "assistant", "content": "You are a helpful assistant that formats output in JSON schema."},
+            {"role": "system", "content": "You are a helpful assistant that formats output in JSON schema."},
             {"role": "user", "content": input_text}
         ],
         max_completion_tokens=1000,  # Increased token limit for longer responses
-        temperature=1# Set to 0 for more predictable responses
+        temperature=0.7# Set to 0 for more predictable responses
     )
 
     return response.choices[0].message['content'].strip()
@@ -47,7 +47,7 @@ def generate_test_cases():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")  # Format: Nov-06-2024_15-05-50
-    output_file_path = f"../outputs/o1-mini/temp1/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
+    output_file_path = f"../outputs/demo/output_{timestamp}.json"  # Path to your JSON output file with formatted timestamp
 
     prompt = "Based on the JSON data provided, generate input test cases for black box testing of a DEVS (Discrete Event System Specification) model in raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON."
 
@@ -106,7 +106,7 @@ def analyze_test_results():
 
     # Generate a timestamp for the output file name
     timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
-    output_file_path = f"../outputs/o1-mini/temp1/analysis_{timestamp}.json"
+    output_file_path = f"../outputs/demo/analysis_{timestamp}.json"
 
     # Parse the GPT response into JSON format if it's valid JSON
     try:
@@ -118,6 +118,42 @@ def analyze_test_results():
     save_json(analysis_data, output_file_path)
 
     print(f"Test analysis saved to {output_file_path}")
+
+    return output_file_path
+
+def feedback_loop(results_path):
+    """
+    Initiates a feedback loop to generate more tests cases.
+    """
+
+    adder_prompt_path = "../json_prompts/multiplier_prompt.json"
+
+    # Load JSON data from the specified paths
+    adder_prompt = load_json(adder_prompt_path)
+    results = load_json(results_path)
+
+    # Prompt for GPT analysis
+    feedback_prompt = ("Based on the JSON data provided and generate new test cases in the same JSON format to help diagnose the issue if any test cases failed."
+                       "Provide the analysis in the given raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.")
+
+    # Query GPT for analysis
+    combined_json = f"Prompt:\n{adder_prompt}\n\nTest Results:\n{results}"
+    response = query_gpt(feedback_prompt, combined_json)
+
+    # Generate a timestamp for the output file name
+    timestamp = datetime.now().strftime("%b-%d-%Y_%H-%M-%S")
+    output_file_path = f"../outputs/feedback/feedback_{timestamp}.json"
+
+    # Parse the GPT response into JSON format if it's valid JSON
+    try:
+        feedback_data = json.loads(response)
+    except json.JSONDecodeError:
+        feedback_data = {"error": "Failed to parse GPT response as JSON", "raw_response": response}
+
+    # Save to an output JSON file
+    save_json(feedback_data, output_file_path)
+
+    print(f"Feedback saved to {output_file_path}")
 
 
 if __name__ == "__main__":
