@@ -1,0 +1,56 @@
+{
+  "model_description": {
+    "type": "coupled DEVS",
+    "name": "VendingMachine",
+    "description": "A model that mimics the basic behavior of a vending machine. A customer will select a beverage and inserts their money. If the money inserted into the machine is not sufficient, then the machine will wait for more money to be added. Once enough money has been acquired by the machine it will calculate the change to be deposited and it will deposit the change. After returning the change to the customer, the beverage purchased will be dispensed.",
+    "model struct types": [
+      {"name":  "item_selection_t",
+        "elements": [
+          {"name": "price", "type": "float", "min": "0.5", "max": "5"},
+          {"name": "item_id", "type": "int", "min": "1", "max": "30"}
+        ] }
+    ],
+    "inputs": [
+      {
+        "name": "i_beverage_selection",
+        "type": "item_selection_t",
+        "description": "represents the item selected by the customer, including the item_id and price"
+      },
+      {"name": "i_money",
+        "type": "float",
+        "min": 0.1,
+        "max": 20,
+        "description": "represents the amount of money inserted by the customer"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "o_change",
+        "type": "float",
+        "description": "port to output the calculated change which can be equal to OR greater than 0"
+      },
+      {
+        "name": "o_dispense_id",
+        "type": "int",
+        "description": "port to send the id of the beverage to dispense"}
+    ]
+  },
+  "testing_methodology": "Boundary Analysis",
+  "requirements": "Generate multiple test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values.",
+  "output_format": {
+    "test_cases": [
+      {
+        "test_case_id" : "T1",
+        "description": "",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [5.00, 1] }],
+          "i_money": [{ "time": "1", "value": 5.00}]
+        },
+        "expected_output": {
+          "o_change": [{"value": 1}],
+          "o_dispense_id": [{"value": 0.00}]
+        }
+      }
+    ]
+  }
+}

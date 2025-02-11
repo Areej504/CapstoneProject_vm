@@ -1,8 +1,0 @@
-{
-    "T1": {
-        "expected_result": "10000, 0, -10000",
-        "actual_result": "10000, 0, -10000",
-        "pass": true,
-        "remarks": "All test cases passed with expected product results."
-    }
-}
