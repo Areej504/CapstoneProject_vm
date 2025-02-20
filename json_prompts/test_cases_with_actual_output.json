@@ -1,208 +1,111 @@
 {
-    "test_cases": [
-        {
-            "test_case_id": "T1",
-            "description": "Test with minimum boundary values for both inputs.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "-100"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "-100"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "10000"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": -200
-                    }
-                ]
-            }
-        },
-        {
-            "test_case_id": "T2",
-            "description": "Test with maximum boundary values for both inputs.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "100"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "100"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "10000"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": 200
-                    }
-                ]
-            }
-        },
-        {
-            "test_case_id": "T3",
-            "description": "Test with a typical positive value for arg1 and a typical negative value for arg2.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "50"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "-50"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "-2500"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": 0
-                    }
-                ]
-            }
-        },
-        {
-            "test_case_id": "T4",
-            "description": "Test with a zero value for arg1 and a typical value for arg2.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "0"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "75"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "0"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": 75
-                    }
-                ]
-            }
-        },
-        {
-            "test_case_id": "T5",
-            "description": "Test with typical values for both inputs.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "20"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "30"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "600"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": 50
-                    }
-                ]
-            }
-        },
-        {
-            "test_case_id": "T6",
-            "description": "Test with a negative value for arg1 and zero value for arg2.",
-            "input": {
-                "arg1": [
-                    {
-                        "time": "0",
-                        "value": "-60"
-                    }
-                ],
-                "arg2": [
-                    {
-                        "time": "3",
-                        "value": "0"
-                    }
-                ]
-            },
-            "expected_output": {
-                "product": [
-                    {
-                        "time": "3",
-                        "value": "0"
-                    }
-                ]
-            },
-            "actual_output": {
-                "sum": [
-                    {
-                        "time": 8,
-                        "value": -60
-                    }
-                ]
-            }
-        }
+  "model_description": {
+    "type": "coupled DEVS",
+    "name": "VendingMachine",
+    "description": "A model that mimics the basic behavior of a vending machine. A customer selects a beverage and inserts money. If the inserted amount is insufficient, the machine waits for additional money. Once enough money is collected, it calculates and dispenses change, followed by the selected beverage.",
+    "model_struct_types": [
+      {
+        "name": "item_selection_t",
+        "elements": [
+          { "name": "price", "type": "float", "min": 0.5, "max": 5 },
+          { "name": "item_id", "type": "int", "min": 1, "max": 30 }
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "name": "i_beverage_selection",
+        "type": "item_selection_t",
+        "description": "Represents the item selected by the customer, including item_id and price."
+      },
+      {
+        "name": "i_money",
+        "type": "float",
+        "min": 0.1,
+        "max": 20,
+        "description": "Represents the amount of money inserted by the customer."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "o_change",
+        "type": "float",
+        "description": "Outputs the calculated change, which can be equal to or greater than 0."
+      },
+      {
+        "name": "o_dispense_id",
+        "type": "int",
+        "description": "Outputs the ID of the beverage to be dispensed."
+      }
     ]
+  },
+  "testing_methodology": "Boundary Analysis",
+  "requirements": "Generate multiple test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values.",
+  "output_format": {
+    "test_cases": [
+      {
+        "test_case_id": "T1",
+        "description": "Test with minimum boundary values for both inputs.",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [0.50, 1] }],
+          "i_money": [{ "time": "1", "value": 0.10 }]
+        },
+        "expected_output": {
+          "o_change": [{ "time": "2", "value": 0 }],
+          "o_dispense_id": [{ "time": "2", "value": 1 }]
+        }
+      },
+      {
+        "test_case_id": "T2",
+        "description": "Test with maximum boundary values for both inputs.",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [5.00, 30] }],
+          "i_money": [{ "time": "1", "value": 20.00 }]
+        },
+        "expected_output": {
+          "o_change": [{ "time": "2", "value": 15.00 }],
+          "o_dispense_id": [{ "time": "2", "value": 30 }]
+        }
+      },
+      {
+        "test_case_id": "T3",
+        "description": "Test with a typical mid-range value for item selection and a typical money input.",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [2.50, 15] }],
+          "i_money": [{ "time": "1", "value": 5.00 }]
+        },
+        "expected_output": {
+          "o_change": [{ "time": "2", "value": 2.50 }],
+          "o_dispense_id": [{ "time": "2", "value": 15 }]
+        }
+      },
+      {
+        "test_case_id": "T4",
+        "description": "Test where user inserts insufficient funds initially, then adds more money.",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [3.00, 10] }],
+          "i_money": [
+            { "time": "1", "value": 1.00 },
+            { "time": "3", "value": 2.00 }
+          ]
+        },
+        "expected_output": {
+          "o_change": [{ "time": "4", "value": 0.00 }],
+          "o_dispense_id": [{ "time": "4", "value": 10 }]
+        }
+      },
+      {
+        "test_case_id": "T5",
+        "description": "Test where user inserts extra money, expecting change.",
+        "input": {
+          "i_beverage_selection": [{ "time": "0", "value": [4.00, 5] }],
+          "i_money": [{ "time": "1", "value": 5.00 }]
+        },
+        "expected_output": {
+          "o_change": [{ "time": "2", "value": 1.00 }],
+          "o_dispense_id": [{ "time": "2", "value": 5 }]
+        }
+      }
+    ]
+  }
 }

@@ -3,26 +3,29 @@ import subprocess
 
 
 def build_and_run_test_driver():
-    """Build Cmake to install cadmium dependencies and run test driver"""
+    """Build CMake to install cadmium dependencies and run test driver"""
 
     root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-    build_dir = os.path.join(root_dir, "model", "vending_machine-main", "build")
+    build_dir = os.path.join(root_dir, "model", "vending_machine", "build")
 
-    # ensure build directory exists
+    # Ensure build directory exists
     os.makedirs(build_dir, exist_ok=True)
 
     try:
-        #run `cmake ..`
+        # Run `cmake ..`
         subprocess.run(["cmake", ".."], check=True, cwd=build_dir)
 
-        # run `cmake --build . -t td_Basic_Adder`
+        # Run `cmake --build . -t td_Vending_Machine`
         subprocess.run(
             ["cmake", "--build", ".", "-t", "td_Vending_Machine"],
             check=True,
             cwd=build_dir
         )
 
-        executable_path = os.path.join(build_dir, "test/Debug", "td_Vending_Machine.exe")
+        # Set the correct executable path based on OS
+        executable_path = os.path.join(build_dir, "test", "td_Vending_Machine")
+        if os.name == "nt":  # Windows
+            executable_path += ".exe"
 
         # Ensure executable exists
         if not os.path.exists(executable_path):
@@ -39,6 +42,7 @@ def build_and_run_test_driver():
             print(f"Output:\n{e.stdout}")
         if e.stderr:
             print(f"Error:\n{e.stderr}")
+
 
 if __name__ == '__main__':
     build_and_run_test_driver()
