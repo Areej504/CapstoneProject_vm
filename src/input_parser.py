@@ -10,7 +10,7 @@ def update_test_data(json_file, output_file):
     with open(json_file, 'r') as file:
         test_cases_data = json.load(file)
 
-    test_cases = test_cases_data["output_format"]["test_cases"]
+    test_cases = test_cases_data["test_cases"]
 
     with open(output_file, 'w') as file:
         # Header guards and includes
@@ -116,8 +116,4 @@ def main(test_cases_file: str):
 
     update_test_data(test_cases_file, output_file)
     move_to_capstone_models(output_file, capstone_dir)
-
-if __name__ == "__main__":
-    test_cases_file = "/Users/javeriasohail/Desktop/CapstoneProject_vm/json_prompts/test_cases_with_actual_output.json"  # Update with correct path
-    main(test_cases_file)
 

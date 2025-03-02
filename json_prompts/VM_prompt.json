@@ -47,8 +47,8 @@
           "i_money": [{ "time": "1", "value": 5.00}]
         },
         "expected_output": {
-          "o_change": [{"value": 1}],
-          "o_dispense_id": [{"value": 0.00}]
+          "o_change": [{"time":  "2","value": 1}],
+          "o_dispense_id": [{"time":  "3","value": 0.00}]
         }
       }
     ]
