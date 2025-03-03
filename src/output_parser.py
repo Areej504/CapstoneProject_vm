@@ -20,11 +20,20 @@ def extract_actual_outputs(simulation_dir):
             test_name = filename.replace("_", " ").replace(".csv", "").strip()
             with open(os.path.join(simulation_dir, filename), 'r') as file:
                 reader = csv.reader(file, delimiter=';')
-                outputs = []
+                outputs = {"o_change": [], "o_dispense_id": []}
+
                 for row in reader:
-                    if len(row) > 3 and row[3] == "sum":
-                        outputs.append({"time": int(row[0]), "value": int(row[4])})
-                actual_outputs[test_name] = {"sum": outputs}
+                    if len(row) > 4:  # Ensure there's enough data in the row
+                        port_name = row[3].strip()
+                        value = row[4].strip()
+
+                        # Convert to appropriate data type (float for change, int for dispense ID)
+                        if port_name == "o_change":
+                            outputs["o_change"].append({"value": float(value)})
+                        elif port_name == "o_dispense_id":
+                            outputs["o_dispense_id"].append({"value": int(value)})
+
+                actual_outputs[test_name] = outputs
     return actual_outputs
 
 
@@ -58,7 +67,7 @@ def save_test_cases_with_actual_output(output_file, data):
 
 def main(test_cases_file: str):
     # File paths
-    simulation_dir = "../model/capstone_models/test/td_Basic_Adder/simulation_results"
+    simulation_dir = "../model/vending_machine/test/Vending_Machine/simulation_results"
     output_file = "../json_prompts/test_cases_with_actual_output.json"
 
     # Process data
@@ -72,4 +81,4 @@ def main(test_cases_file: str):
 
 
 if __name__ == "__main__":
-    main()
+    main('../outputs/tests/output_Mar-02-2025_15-00-34.json')
