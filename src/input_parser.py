@@ -112,7 +112,7 @@ def move_to_capstone_models(test_data_file, capstone_dir):
 
 def main(test_cases_file: str):
     output_file = "test_data.hpp"
-    capstone_dir = "../model/vending_machine/"
+    capstone_dir = "../model/vending_machine/test/Vending_Machine"
 
     update_test_data(test_cases_file, output_file)
     move_to_capstone_models(output_file, capstone_dir)
