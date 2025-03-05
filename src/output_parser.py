@@ -17,7 +17,7 @@ def extract_actual_outputs(simulation_dir):
     actual_outputs = {}
     for filename in os.listdir(simulation_dir):
         if filename.endswith(".csv"):
-            test_name = filename.replace("_", " ").replace(".csv", "").strip()
+            test_name = filename.replace(".csv", "").strip()
             with open(os.path.join(simulation_dir, filename), 'r') as file:
                 reader = csv.reader(file, delimiter=';')
                 outputs = {"o_change": [], "o_dispense_id": []}
@@ -34,6 +34,7 @@ def extract_actual_outputs(simulation_dir):
                             outputs["o_dispense_id"].append({"value": int(value)})
 
                 actual_outputs[test_name] = outputs
+                print("Outputs: ", outputs)
     return actual_outputs
 
 
@@ -81,4 +82,4 @@ def main(test_cases_file: str):
 
 
 if __name__ == "__main__":
-    main('../outputs/tests/output_Mar-02-2025_15-00-34.json')
+    main('../outputs/tests/output_Mar-05-2025_15-17-13.json')
