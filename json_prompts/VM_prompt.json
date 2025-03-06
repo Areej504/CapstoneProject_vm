@@ -6,8 +6,8 @@
     "model struct types": [
       {"name":  "item_selection_t",
         "elements": [
-          {"name": "price", "type": "float", "min": "0.5", "max": "5"},
-          {"name": "item_id", "type": "int", "min": "1", "max": "30"}
+          {"name": "item_id", "type": "int", "min": "1", "max": "30"},
+          {"name": "price", "type": "float", "min": "0.5", "max": "5"}
         ] }
     ],
     "inputs": [
@@ -36,14 +36,14 @@
     ]
   },
   "testing_methodology": "Boundary Analysis",
-  "requirements": "Generate multiple test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values.",
+  "requirements": "Generate three test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values.",
   "output_format": {
     "test_cases": [
       {
         "test_case_id" : "T1",
         "description": "",
         "input": {
-          "i_beverage_selection": [{ "time": "0", "value": [5.00, 1] }],
+          "i_beverage_selection": [{ "time": "0", "value": [1, 5.00] }],
           "i_money": [{ "time": "1", "value": 5.00}]
         },
         "expected_output": {

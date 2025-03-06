@@ -17,7 +17,7 @@ if __name__ == '__main__':
     print("\n***************** PARSING OUTPUTS *****************")
     output_parser.main(tc_file_path)
 
-    #step 5 : feedback loop -> query chatgpt to analyze results (pass/fail) and return more test cases
+    # #step 5 : feedback loop -> query chatgpt to analyze results (pass/fail) and return more test cases
     print("\n***************** RESULT ANALYSIS *****************")
     analysis_filename = dispatcher.analyze_test_results()
     dispatcher.feedback_loop(analysis_filename)

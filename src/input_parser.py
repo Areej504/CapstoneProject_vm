@@ -49,7 +49,7 @@ def update_test_data(json_file, output_file):
 
                     # Handle item_selection_t case (list of two values: [price, item_id])
                     if isinstance(val, list) and len(val) == 2:
-                        price, item_id = val
+                        item_id, price = val
                         file.write(f"    {input_name}_{i}.push_back(std::make_tuple({time}, Variant_Goblin(item_selection_t(float({price}), int({item_id})))));\n")
                     elif isinstance(val, (int, float)):
                         file.write(f"    {input_name}_{i}.push_back(std::make_tuple({time}, Variant_Goblin(float({val}))));\n")
@@ -129,8 +129,3 @@ def main(test_cases_file: str):
 
     update_test_data(test_cases_file, output_file)
     move_to_capstone_models(output_file, capstone_dir)
-
-# Run the script if executed directly
-if __name__ == "__main__":
-    test_cases_path = "test_cases.json"
-    main(test_cases_path)

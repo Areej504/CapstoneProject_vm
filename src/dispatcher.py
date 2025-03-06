@@ -133,7 +133,7 @@ def feedback_loop(results_path):
     results = load_json(results_path)
 
     # Prompt for GPT analysis
-    feedback_prompt = ("Based on the JSON data provided and generate new test cases in the same JSON format to help diagnose the issue if any test cases failed."
+    feedback_prompt = ("Based on the JSON data provided, generate new test cases in the same JSON format to help diagnose the issue if any test cases failed."
                        "Provide the analysis in the given raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.")
 
     # Query GPT for analysis
