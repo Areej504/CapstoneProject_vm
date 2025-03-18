@@ -36,7 +36,7 @@
     ]
   },
   "testing_methodology": "Boundary Analysis",
-  "requirements": "Generate three test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values.",
+  "requirements": "Generate three test cases to test the boundaries for i_beverage_selection and i_money, including minimum, typical, and maximum values. Do not provide any test cases for insufficient money input.",
   "output_format": {
     "test_cases": [
       {

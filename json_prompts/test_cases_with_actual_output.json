@@ -1,22 +1,22 @@
 {
     "test_cases": [
         {
-            "test_case_id": "T1",
-            "description": "Test with minimum item_id and maximum price for initial selection, followed by enough money to complete purchase.",
+            "test_case_id": "T4",
+            "description": "Minimum boundary test for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
                         "time": "0",
                         "value": [
                             1,
-                            5.0
+                            0.5
                         ]
                     }
                 ],
                 "i_money": [
                     {
                         "time": "1",
-                        "value": 5.0
+                        "value": 0.5
                     }
                 ]
             },
@@ -48,8 +48,8 @@
             }
         },
         {
-            "test_case_id": "T2",
-            "description": "Test with a typical item_id and price, inserting an exact amount of money.",
+            "test_case_id": "T5",
+            "description": "Typical value test for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
@@ -95,22 +95,22 @@
             }
         },
         {
-            "test_case_id": "T3",
-            "description": "Test with maximum item_id and minimum price, inserting more money than required.",
+            "test_case_id": "T6",
+            "description": "Maximum boundary test for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
                         "time": "0",
                         "value": [
                             30,
-                            0.5
+                            5.0
                         ]
                     }
                 ],
                 "i_money": [
                     {
                         "time": "1",
-                        "value": 1.0
+                        "value": 20.0
                     }
                 ]
             },
@@ -118,7 +118,7 @@
                 "o_change": [
                     {
                         "time": "2",
-                        "value": 0.5
+                        "value": 15.0
                     }
                 ],
                 "o_dispense_id": [

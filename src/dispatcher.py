@@ -3,7 +3,6 @@ import json
 from datetime import datetime
 import os
 from dotenv import load_dotenv
-
 # Load environment variables from .env file
 load_dotenv("../key.env")
 
@@ -77,17 +76,18 @@ def analyze_test_results():
     """
     Analyzes the pass/fail status of test cases in results.json using VM_prompt.json as context.
     """
-
     adder_prompt_path = "../json_prompts/VM_prompt.json"
     results_path = "../json_prompts/test_cases_with_actual_output.json"
+    log_path = "../outputs/failure_log.json"
 
     # Load JSON data from the specified paths
     adder_prompt = load_json(adder_prompt_path)
     results = load_json(results_path)
+    log = load_json(log_path)
 
     # Prompt for GPT analysis
     analysis_prompt = (
-        "Given the prompt JSON containing the model description and the test results JSON provided, analyze the pass/fail status of each test case for the value result, ignoring the time result and analyze any trends with failed results. "
+        "Given the prompt JSON containing the model description, the test results JSON provided and the previous test iterations log, analyze the pass/fail status of each test case for the value result, ignoring the time result and analyze any trends with failed results. "
         "Provide the analysis in the following raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.:\n"
         "{\n"
         "  \"test_case_id\": {\n"
@@ -101,7 +101,7 @@ def analyze_test_results():
     )
 
     # Query GPT for analysis
-    combined_json = f"Prompt:\n{adder_prompt}\n\nTest Results:\n{results}"
+    combined_json = f"Prompt:\n{adder_prompt}\n\nTest Results:\n{results}\n\nIterations:\n{log}"
     response = query_gpt(analysis_prompt, combined_json)
 
     # Generate a timestamp for the output file name
@@ -133,7 +133,7 @@ def feedback_loop(results_path):
     results = load_json(results_path)
 
     # Prompt for GPT analysis
-    feedback_prompt = ("Based on the JSON data provided, generate new test cases in the same JSON format to help diagnose the issue if any test cases failed."
+    feedback_prompt = ("Based on the JSON data provided, generate new test cases in the exact output format specified in the prompt to help diagnose the issue if any test cases failed."
                        "Provide the analysis in the given raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.")
 
     # Query GPT for analysis
@@ -154,6 +154,8 @@ def feedback_loop(results_path):
     save_json(feedback_data, output_file_path)
 
     print(f"Feedback saved to {output_file_path}")
+
+    return output_file_path
 
 
 if __name__ == "__main__":
