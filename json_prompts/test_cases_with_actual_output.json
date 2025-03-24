@@ -2,7 +2,7 @@
     "test_cases": [
         {
             "test_case_id": "T4",
-            "description": "Minimum boundary test for i_beverage_selection and i_money.",
+            "description": "Test with minimum boundary values for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
@@ -49,7 +49,7 @@
         },
         {
             "test_case_id": "T5",
-            "description": "Typical value test for i_beverage_selection and i_money.",
+            "description": "Test with typical boundary values for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
@@ -63,7 +63,7 @@
                 "i_money": [
                     {
                         "time": "1",
-                        "value": 2.5
+                        "value": 3.0
                     }
                 ]
             },
@@ -71,7 +71,7 @@
                 "o_change": [
                     {
                         "time": "2",
-                        "value": 0.0
+                        "value": 0.5
                     }
                 ],
                 "o_dispense_id": [
@@ -96,7 +96,7 @@
         },
         {
             "test_case_id": "T6",
-            "description": "Maximum boundary test for i_beverage_selection and i_money.",
+            "description": "Test with maximum boundary values for i_beverage_selection and i_money.",
             "input": {
                 "i_beverage_selection": [
                     {
@@ -110,7 +110,7 @@
                 "i_money": [
                     {
                         "time": "1",
-                        "value": 20.0
+                        "value": 10.0
                     }
                 ]
             },
@@ -118,7 +118,7 @@
                 "o_change": [
                     {
                         "time": "2",
-                        "value": 15.0
+                        "value": 5.0
                     }
                 ],
                 "o_dispense_id": [

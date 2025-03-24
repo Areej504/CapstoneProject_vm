@@ -4,173 +4,70 @@
             "iteration": 1,
             "failed_cases": [
                 {
-                    "expected_result": {
-                        "o_change": 1.0,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 1.0 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
+                    "test_case": "T2",
+                    "result": {
+                        "expected_result": {
+                            "o_change": [
+                                {
+                                    "time": "2",
+                                    "value": 0.5
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "time": "3",
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        "actual_result": {
+                            "o_change": [
+                                {
+                                    "value": 0.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        "pass": false,
+                        "remarks": "The change calculated was incorrect. Expected change was 0.5 but the actual change was 0.0. This indicates a potential issue in the change calculation logic when the money inserted exceeds the price."
+                    }
                 },
                 {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 1.0,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 1.0 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
-                },
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
-                },
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
-                },
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
-                },
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 0.5,
-                        "o_dispense_id": 15
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 15
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 0.5 but was 0.0. This indicates a possible issue in the change calculation logic when money is more than the price."
-                },
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
+                    "test_case": "T3",
+                    "result": {
+                        "expected_result": {
+                            "o_change": [
+                                {
+                                    "time": "2",
+                                    "value": 5.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "time": "3",
+                                    "value": 30
+                                }
+                            ]
+                        },
+                        "actual_result": {
+                            "o_change": [
+                                {
+                                    "value": 0.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "value": 30
+                                }
+                            ]
+                        },
+                        "pass": false,
+                        "remarks": "The change calculated was incorrect. Expected change was 5.0 but the actual change was 0.0. This indicates a potential issue in the change calculation logic when the money inserted significantly exceeds the price."
+                    }
                 }
             ]
         },
@@ -178,101 +75,70 @@
             "iteration": 2,
             "failed_cases": [
                 {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 2,
-            "failed_cases": [
+                    "test_case": "T5",
+                    "result": {
+                        "expected_result": {
+                            "o_change": [
+                                {
+                                    "time": "2",
+                                    "value": 0.5
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "time": "3",
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        "actual_result": {
+                            "o_change": [
+                                {
+                                    "value": 0.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "value": 15
+                                }
+                            ]
+                        },
+                        "pass": false,
+                        "remarks": "The change calculated was incorrect. Expected change was 0.5 but the actual change was 0.0. This indicates a potential issue in the change calculation logic when the money inserted exceeds the price."
+                    }
+                },
                 {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 1,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 2,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
-                }
-            ]
-        },
-        {
-            "iteration": 2,
-            "failed_cases": [
-                {
-                    "expected_result": {
-                        "o_change": 15.0,
-                        "o_dispense_id": 30
-                    },
-                    "actual_result": {
-                        "o_change": 0.0,
-                        "o_dispense_id": 30
-                    },
-                    "pass": false,
-                    "remarks": "The change output was expected to be 15.0 but was 0.0. This suggests a consistent issue with handling the calculation of change when the money inserted is significantly more than the price."
+                    "test_case": "T6",
+                    "result": {
+                        "expected_result": {
+                            "o_change": [
+                                {
+                                    "time": "2",
+                                    "value": 5.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "time": "3",
+                                    "value": 30
+                                }
+                            ]
+                        },
+                        "actual_result": {
+                            "o_change": [
+                                {
+                                    "value": 0.0
+                                }
+                            ],
+                            "o_dispense_id": [
+                                {
+                                    "value": 30
+                                }
+                            ]
+                        },
+                        "pass": false,
+                        "remarks": "The change calculated was incorrect. Expected change was 5.0 but the actual change was 0.0. This indicates a potential issue in the change calculation logic when the money inserted significantly exceeds the price."
+                    }
                 }
             ]
         }

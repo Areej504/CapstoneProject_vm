@@ -8,6 +8,19 @@ def log_step(step_name):
     """Formats and prints step headers."""
     print(f"\n{'*' * 20} {step_name} {'*' * 20}\n")
 
+
+def reset_failure_log():
+    """Clears the failure_log.json file at the beginning of a new test suite."""
+    failure_log_path = os.path.join(os.path.dirname(__file__), "../outputs/failure_log.json")
+
+    try:
+        with open(failure_log_path, 'w') as failure_file:
+            json.dump({"iterations": []}, failure_file, indent=4)
+        print("log reset for a new test suite.")
+    except Exception as e:
+        print(f"Error resetting failure log: {e}")
+
+
 def log_failures(analysis_filename, iteration):
     """Logs failed test cases into failure_log.json based on the analysis results."""
     try:
@@ -16,15 +29,15 @@ def log_failures(analysis_filename, iteration):
             analysis_data = json.load(analysis_file)
         print(json.dumps(analysis_data, indent=4))
 
-        # Initialize the structure for the failure log if it doesn't exist or is empty
-        failure_log = {}
-        if os.path.exists("../outputs/failure_log.json"):
-            with open("../outputs/failure_log.json", 'r') as failure_file:
-                failure_log = json.load(failure_file)
+        # Define failure log file path
+        failure_log_path = os.path.join(os.path.dirname(__file__), "../outputs/failure_log.json")
 
-        # If failure_log is empty, initialize it with an empty iterations key
-        if not failure_log.get("iterations"):
-            failure_log["iterations"] = []
+        # Initialize or load failure log
+        try:
+            with open(failure_log_path, 'r') as failure_file:
+                failure_log = json.load(failure_file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            failure_log = {"iterations": []}
 
         # Initialize failure data for the current iteration
         failure_data = {
@@ -32,16 +45,15 @@ def log_failures(analysis_filename, iteration):
             "failed_cases": []
         }
 
-        # Process the test cases and check if there are failures
+        # Process test cases and check for failures
         for test_case, result in analysis_data.items():
-            if not result.get("pass"):  # Check for failed cases
-                failure_data["failed_cases"].append(result)
+            if not result or not result.get("pass", False):  # Ensure result exists and check failure
+                failure_data["failed_cases"].append({"test_case": test_case, "result": result})
 
-        # If there are failed cases, add them to the failure log
+        # If failures exist, update the log
         if failure_data["failed_cases"]:
             failure_log["iterations"].append(failure_data)
-            # Write the updated failure log back to the file
-            with open("../outputs/failure_log.json", 'w') as failure_file:
+            with open(failure_log_path, 'w') as failure_file:
                 json.dump(failure_log, failure_file, indent=4)
 
             print(f"Failures logged for iteration {iteration + 1}.")
@@ -57,6 +69,7 @@ def log_failures(analysis_filename, iteration):
     except Exception as e:
         print(f"An error occurred: {e}")
     return False
+
 
 def run_test_iteration(tc_file_path, iteration):
     """Runs a single test iteration with feedback loop."""
@@ -80,7 +93,6 @@ def run_test_iteration(tc_file_path, iteration):
     analysis_filename = dispatcher.analyze_test_results()
 
     #Step 6: Log Failures
-    log_failures(analysis_filename, iteration)
     failed = log_failures(analysis_filename, iteration)
 
     if not failed:
@@ -91,6 +103,8 @@ def run_test_iteration(tc_file_path, iteration):
 
 
 if __name__ == '__main__':
+    reset_failure_log() #clear the log file for a new test
+
     #step 1: generate initial test cases with ChatGPT
     log_step("TEST CASE GENERATION")
     tc_file_path = dispatcher.generate_test_cases()
