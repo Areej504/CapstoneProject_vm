@@ -109,7 +109,7 @@ if __name__ == '__main__':
     log_step("TEST CASE GENERATION")
     tc_file_path = dispatcher.generate_test_cases()
 
-    num_iterations = 2
+    num_iterations = 3
     for i in range(num_iterations):
         tc_file_path = run_test_iteration(tc_file_path, i)
         if tc_file_path is None:

@@ -33,7 +33,7 @@ def query_gpt(prompt, json_string):
             {"role": "user", "content": input_text}
         ],
         max_completion_tokens=1000,  # Increased token limit for longer responses
-        temperature=0.7# Set to 0 for more predictable responses
+        temperature=0.1# Set to 0 for more predictable responses
     )
 
     return response.choices[0].message['content'].strip()
@@ -133,7 +133,7 @@ def feedback_loop(results_path):
     results = load_json(results_path)
 
     # Prompt for GPT analysis
-    feedback_prompt = ("Based on the JSON data provided, generate new test cases in the exact output format specified in the prompt to help diagnose the issue if any test cases failed."
+    feedback_prompt = ("Based on the JSON data provided, generate new test cases following the **exact structure** specified in the `output_format` property to help diagnose the issue if any test cases failed."
                        "Provide the analysis in the given raw JSON format. Do not include Markdown formatting, code blocks, or any additional text. Only return valid JSON.")
 
     # Query GPT for analysis
